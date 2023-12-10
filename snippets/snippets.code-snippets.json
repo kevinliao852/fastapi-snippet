@@ -1,0 +1,168 @@
+{
+  "FastAPI Router": {
+    "prefix": "frt",
+    "body": ["from fastapi import APIRouter", "router = APIRouter()"]
+  },
+  "FastAPI Get Route": {
+    "prefix": "frg",
+    "body": [
+      "from fastapi import APIRouter",
+      "router = APIRouter()",
+      "",
+      "@router.get(\"/\", tags=[\"${1:tag}\"])",
+      "async def ${2:route_name}():",
+      "\treturn {\"message\": \"${3:Hello World}\"}"
+    ]
+  },
+  "FastAPI Post Route": {
+    "prefix": "frp",
+    "body": [
+      "from fastapi import APIRouter",
+      "router = APIRouter()",
+      "",
+      "@router.post(\"/\", tags=[\"${1:tag}\"])",
+      "async def ${2:route_name}():",
+      "\treturn {\"message\": \"${3:Hello World}\"}"
+    ]
+  },
+  "FastAPI Put Route": {
+    "prefix": "frpu",
+    "body": [
+      "from fastapi import APIRouter",
+      "router = APIRouter()",
+      "",
+      "@router.put(\"/\", tags=[\"${1:tag}\"])",
+      "async def ${2:route_name}():",
+      "\treturn {\"message\": \"${3:Hello World}\"}"
+    ]
+  },
+  "FastAPI Delete Route": {
+    "prefix": "frd",
+    "body": [
+      "from fastapi import APIRouter",
+      "router = APIRouter()",
+      "",
+      "@router.delete(\"/\", tags=[\"${1:tag}\"])",
+      "async def ${2:route_name}():",
+      "\treturn {\"message\": \"${3:Hello World}\"}"
+    ]
+  },
+  "SQLAlchemy Model": {
+    "prefix": "sqlm",
+    "body": [
+      "from sqlalchemy import Column, Integer, String",
+      "from sqlalchemy.ext.declarative import declarative_base",
+      "",
+      "Base = declarative_base()",
+      "",
+      "class ${1:ModelName}(Base):",
+      "\t__tablename__ = \"${2:table_name}\"",
+      "",
+      "\tid = Column(Integer, primary_key=True, index=True)",
+      "\t${3:column_name} = Column(String)"
+    ]
+  },
+  "SQL Get From Model": {
+    "prefix": "sqlg",
+    "body": [
+      "from sqlalchemy.orm import Session",
+      "from . import models",
+      "",
+      "def ${1:func_name}(db: Session, ${2:args}):",
+      "\treturn db.query(models.${3:ModelName}).filter(models.${3:ModelName}.${4:column_name} == ${5:arg})"
+    ]
+  },
+  "SQL Create From Model": {
+    "prefix": "sqlc",
+    "body": [
+      "from sqlalchemy.orm import Session",
+      "from . import models",
+      "",
+      "def ${1:func_name}(db: Session, ${2:args}):",
+      "\t${3:model_name} = models.${4:ModelName}(${5:args})",
+      "\tdb.add(${3:model_name})",
+      "\tdb.commit()",
+      "\tdb.refresh(${3:model_name})",
+      "\treturn ${3:model_name}"
+    ]
+  },
+  "SQL Update From Model": {
+    "prefix": "sqlu",
+    "body": [
+      "from sqlalchemy.orm import Session",
+      "from . import models",
+      "",
+      "def ${1:func_name}(db: Session, ${2:args}):",
+      "\t${3:model_name} = db.query(models.${4:ModelName}).filter(models.${4:ModelName}.${5:column_name} == ${6:arg}).first()",
+      "\t${3:model_name}.${7:column_name} = ${8:arg}",
+      "\tdb.commit()",
+      "\tdb.refresh(${3:model_name})",
+      "\treturn ${3:model_name}"
+    ]
+  },
+  "Pydantic Model": {
+    "prefix": "pym",
+    "body": [
+      "from pydantic import BaseModel",
+      "",
+      "class ${1:ModelName}(BaseModel):",
+      "\t${2:column_name}: ${3:str}"
+    ]
+  },
+  "raise fastapi 400 exception": {
+    "prefix": "fa400",
+    "body": ["raise HTTPException(status_code=400, detail=\"${1:detail}\")"]
+  },
+  "raise fastapi 404 exception": {
+    "prefix": "fa404",
+    "body": ["raise HTTPException(status_code=404, detail=\"${1:detail}\")"]
+  },
+  "raise fastapi 500 exception": {
+    "prefix": "fa500",
+    "body": ["raise HTTPException(status_code=500, detail=\"${1:detail}\")"]
+  },
+  "raise fastapi 401 exception": {
+    "prefix": "fa401",
+    "body": ["raise HTTPException(status_code=401, detail=\"${1:detail}\")"]
+  },
+  "raise fastapi 403 exception": {
+    "prefix": "fa403",
+    "body": ["raise HTTPException(status_code=403, detail=\"${1:detail}\")"]
+  },
+  "raise fastapi 422 exception": {
+    "prefix": "fa422",
+    "body": ["raise HTTPException(status_code=422, detail=\"${1:detail}\")"]
+  },
+  "raise fastapi 409 exception": {
+    "prefix": "fa409",
+    "body": ["raise HTTPException(status_code=409, detail=\"${1:detail}\")"]
+  },
+  "raise fastapi 405 exception": {
+    "prefix": "fa405",
+    "body": ["raise HTTPException(status_code=405, detail=\"${1:detail}\")"]
+  },
+  "raise fastapi 406 exception": {
+    "prefix": "fa406",
+    "body": ["raise HTTPException(status_code=406, detail=\"${1:detail}\")"]
+  },
+  "raise fastapi 500 exception": {
+    "prefix": "fa500",
+    "body": ["raise HTTPException(status_code=500, detail=\"${1:detail}\")"]
+  },
+  "raise fastapi 503 exception": {
+    "prefix": "fa503",
+    "body": ["raise HTTPException(status_code=503, detail=\"${1:detail}\")"]
+  },
+  "raise fastapi 501 exception": {
+    "prefix": "fa501",
+    "body": ["raise HTTPException(status_code=501, detail=\"${1:detail}\")"]
+  },
+  "raise fastapi 502 exception": {
+    "prefix": "fa502",
+    "body": ["raise HTTPException(status_code=502, detail=\"${1:detail}\")"]
+  },
+  "raise fastapi 504 exception": {
+    "prefix": "fa504",
+    "body": ["raise HTTPException(status_code=504, detail=\"${1:detail}\")"]
+  }
+}

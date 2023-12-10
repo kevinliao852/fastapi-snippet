@@ -1,0 +1,26 @@
+{
+  "name": "fastapi-snippet",
+  "displayName": "fastapi-snippet",
+  "description": "snippets for fastapi",
+  "publisher": "kevinliao852",
+  "icon": "images/icon.png",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Snippets"
+  ],
+  "contributes": {
+    "snippets": [
+      {
+        "language": "python",
+        "path": "./snippets/snippets.code-snippets.json"
+      }
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kevinliao852/fastapi-snippet.git"
+  }
+}
