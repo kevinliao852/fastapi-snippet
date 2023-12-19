@@ -47,6 +47,119 @@
       "\treturn {\"message\": \"${3:Hello World}\"}"
     ]
   },
+  "FastAPI Get All Route with Depends": {
+    "prefix": "fralld",
+    "body": [
+      "from typing import List",
+      "from fastapi import APIRouter, Depends",
+      "from pydantic import BaseModel",
+      "",
+      "router = APIRouter()",
+      "",
+      "class ${3:ResourceResponse}(BaseModel):",
+      "\t...",
+      "",
+      "def deps_${2:get_resources}() -> List[${3:ResourceResponse}]:",
+      "\tresps = [${3:ResourceResponse}()]",
+      "\treturn resps",
+      "",
+      "@router.get(\"/\", tags=[\"${1:resource}\"])",
+      "async def ${2:get_resources}(resps: List[${3:ResourceResponse}] = Depends(deps_${2:get_resources})):",
+      "\treturn resps"
+    ]
+  },
+  "FastAPI Get One Route with Depends": {
+    "prefix": "frgetd",
+    "body": [
+      "from fastapi import APIRouter, Depends",
+      "from pydantic import BaseModel",
+      "",
+      "router = APIRouter()",
+      "",
+      "class ${4:ResourceRequest}(BaseModel):",
+      "\t...",
+      "",
+      "class ${3:ResourceResponse}(BaseModel):",
+      "\t...",
+      "",
+      "def deps_${2:get_resource}(req: ${4:ResourceRequest}) -> ${3:ResourceResponse}:",
+      "\tresp = ${3:ResourceResponse}()",
+      "\treturn resp",
+      "",
+      "@router.get(\"/\", tags=[\"${1:resource}\"])",
+      "async def ${2:get_resource}(resp: ${3:ResourceResponse} = Depends(deps_${2:get_resource})):",
+      "\treturn resp"
+    ]
+  },
+  "FastAPI Post Route with Depends": {
+    "prefix": "frnewd",
+    "body": [
+      "from fastapi import APIRouter, Depends",
+      "from pydantic import BaseModel",
+      "",
+      "router = APIRouter()",
+      "",
+      "class ${4:ResourceRequest}(BaseModel):",
+      "\t...",
+      "",
+      "class ${3:ResourceResponse}(BaseModel):",
+      "\t...",
+      "",
+      "def deps_${2:create_resource}(req: ${4:ResourceRequest}) -> ${3:ResourceResponse}:",
+      "\tresp = ${3:ResourceResponse}()",
+      "\treturn resp",
+      "",
+      "@router.post(\"/\", tags=[\"${1:resource}\"])",
+      "async def ${2:create_resource}(resp: ${3:ResourceResponse} = Depends(deps_${2:create_resource})):",
+      "\treturn resp"
+    ]
+  },
+  "FastAPI Put Route with Depends": {
+    "prefix": "frupdd",
+    "body": [
+      "from fastapi import APIRouter, Depends",
+      "from pydantic import BaseModel",
+      "",
+      "router = APIRouter()",
+      "",
+      "class ${4:ResourceRequest}(BaseModel):",
+      "\t...",
+      "",
+      "class ${3:ResourceResponse}(BaseModel):",
+      "\t...",
+      "",
+      "def deps_${2:update_resource}(req: ${4:ResourceRequest}) -> ${3:ResourceResponse}:",
+      "\tresp = ${3:ResourceResponse}()",
+      "\treturn resp",
+      "",
+      "@router.put(\"/\", tags=[\"${1:resource}\"])",
+      "async def ${2:update_resource}(resp: ${3:ResourceResponse} = Depends(deps_${2:update_resource})):",
+      "\treturn resp"
+    ]
+  },
+  "FastAPI Delete Route with Depends": {
+    "prefix": "frdeld",
+    "body": [
+      "from fastapi import APIRouter, Depends",
+      "from pydantic import BaseModel",
+      "",
+      "router = APIRouter()",
+      "",
+      "class ${4:ResourceRequest}(BaseModel):",
+      "\t...",
+      "",
+      "class ${3:ResourceResponse}(BaseModel):",
+      "\t...",
+      "",
+      "def deps_${2:delete_resource}(req: ${4:ResourceRequest}) -> ${3:ResourceResponse}:",
+      "\tresp = ${3:ResourceResponse}()",
+      "\treturn resp",
+      "",
+      "@router.delete(\"/\", tags=[\"${1:resource}\"])",
+      "async def ${2:delete_resource}(resp: ${3:ResourceResponse} = Depends(deps_${2:delete_resource})):",
+      "\treturn resp"
+    ]
+  },
   "SQLAlchemy Model": {
     "prefix": "sqlm",
     "body": [
