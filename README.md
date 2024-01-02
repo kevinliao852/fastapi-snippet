@@ -1,5 +1,11 @@
 # Code Snippets
 
+![GitHub last commit (by committer)](https://img.shields.io/github/last-commit/kevinliao852/fastapi-snippet)
+![Visual Studio Marketplace Release Date](https://img.shields.io/visual-studio-marketplace/release-date/kevinliao852.fastapi-snippet)
+![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/kevinliao852.fastapi-snippet)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/kevinliao852/fastapi-snippet)
+![GitHub License](https://img.shields.io/github/license/kevinliao852/fastapi-snippet)
+
 ## FastAPI Router (frt)
 
 ```python
